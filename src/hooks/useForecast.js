@@ -14,7 +14,7 @@ export const useForecast = () => {
         throw "No such data!";
       }
       const res = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,rain,pressure_msl,cloud_cover,visibility,wind_speed_10m,wind_direction_10m`
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,weather_code,cloud_cover,surface_pressure,wind_speed_10m,wind_direction_10m&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,rain,pressure_msl,surface_pressure,cloud_cover,visibility,wind_speed_10m,wind_direction_10m&daily=sunrise,sunset,uv_index_max,rain_sum&timezone=Europe%2FBerlin`
       );
       const data = await res.json();
       setIsPending(false);

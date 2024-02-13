@@ -9,14 +9,14 @@ const SearchComponent = ({ name, setName, handleSubmit }) => {
       >
         <label>
           <input
-            className="pl-4 py-2 rounded-full text-lg border border-black"
+            className="pl-4 bg-sky-800/25 py-2 rounded-full placeholder:text-gray-200"
             type="text"
             placeholder="Name of the town"
             onChange={(e) => setName(e.target.value)}
             value={name}
           />
         </label>
-        <button className="border-2 border-sky-400 transition duration-100 hover:border-sky-500 cursor-pointer ml-2 bg-sky-300 hover:bg-sky-400 rounded-full">
+        <button className="transition bg-sky-800/25 duration-100 cursor-pointer ml-2 rounded-full">
           <span className="m-1 material-symbols-outlined w-8 h-8 text-2xl">
             search
           </span>

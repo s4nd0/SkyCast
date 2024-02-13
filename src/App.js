@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+
+// components
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HorizontalLine from "./components/HorizontalLine";
@@ -7,15 +9,21 @@ import WeatherComponent from "./components/WeatherComponent";
 import ErrorText from "./components/ErrorText";
 import GeneralForecastComponent from "./components/GeneralForecastComponent";
 import HoursForecastComponent from "./components/HoursForecastComponent";
+import LoadingComponent from "./components/LoadingComponent";
+
+// hooks
+import { useForecast } from "./hooks/useForecast";
+import DetailsForecastComponent from "./components/DetailsForecastComponent";
 
 function App() {
   const [name, setName] = useState("");
   const [town, setTown] = useState("Warsaw");
 
+  const { generalForecast, isPending, forecast, error } = useForecast();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setTown(name);
-    console.log("submitted, city: ", name);
     setName("");
   };
 
@@ -47,21 +55,33 @@ function App() {
   //   onMount();
   // }, []);
 
+  useEffect(() => {
+    if (town) {
+      generalForecast(town);
+    }
+  }, [town]);
+
   return (
-    <div className="flex flex-col min-h-screen box-border">
+    <div className="flex flex-col min-h-screen box-border bg-gradient-to-b from-blue-400 to-blue-600 text-white">
       <Header />
-      <HorizontalLine />
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 box-border">
         <SearchComponent
           name={name}
           setName={setName}
           handleSubmit={handleSubmit}
         />
-        <div className="sm:grid sm:grid-cols-2 box-border">
-          <GeneralForecastComponent town={town} />
-        </div>
+        {isPending ? (
+          <LoadingComponent />
+        ) : (
+          forecast && (
+            <div className="my-4 sm:grid sm:grid-cols-2 box-border">
+              <GeneralForecastComponent town={town} forecast={forecast} />
+              <DetailsForecastComponent forecast={forecast} />
+            </div>
+          )
+        )}
+        {error && <ErrorText text={error} />}
       </main>
-      <HorizontalLine />
       <Footer />
     </div>
   );
