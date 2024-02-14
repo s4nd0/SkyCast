@@ -5,7 +5,7 @@ import WeatherLogo from "../images/weather-logo.png";
 
 const Header = () => {
   return (
-    <header className="py-4 max-w-5xl w-full mx-auto flex flex-row justify-center items-center sm:justify-start">
+    <header className="py-4 max-w-5xl w-full mx-auto flex flex-row justify-center items-center sm:justify-start sm:ml-4">
       <img
         className="w-14 drop-shadow-lg "
         src={WeatherLogo}

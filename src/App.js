@@ -14,6 +14,7 @@ import LoadingComponent from "./components/LoadingComponent";
 // hooks
 import { useForecast } from "./hooks/useForecast";
 import DetailsForecastComponent from "./components/DetailsForecastComponent";
+import ScrollComponent from "./components/ScrollComponent";
 
 function App() {
   const [name, setName] = useState("");
@@ -77,6 +78,9 @@ function App() {
             <div className="my-4 sm:grid sm:grid-cols-2 box-border">
               <GeneralForecastComponent town={town} forecast={forecast} />
               <DetailsForecastComponent forecast={forecast} />
+              <div className="sm:hidden">
+                <ScrollComponent forecast={forecast} />
+              </div>
             </div>
           )
         )}
