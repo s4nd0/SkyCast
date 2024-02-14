@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 // components
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import HorizontalLine from "./components/HorizontalLine";
 import SearchComponent from "./components/SearchComponent";
-import WeatherComponent from "./components/WeatherComponent";
 import ErrorText from "./components/ErrorText";
 import GeneralForecastComponent from "./components/GeneralForecastComponent";
 import HoursForecastComponent from "./components/HoursForecastComponent";
@@ -63,7 +61,15 @@ function App() {
   }, [town]);
 
   return (
-    <div className="flex flex-col min-h-screen box-border bg-gradient-to-b from-blue-400 to-blue-600 text-white">
+    <div
+      className={`flex flex-col min-h-screen box-border bg-gradient-to-b  text-white ${
+        forecast
+          ? forecast.current.is_day
+            ? "from-blue-300 to-blue-500"
+            : "from-blue-500 to-blue-700"
+          : "from-blue-300 to-blue-500"
+      } `}
+    >
       <Header />
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 box-border">
         <SearchComponent

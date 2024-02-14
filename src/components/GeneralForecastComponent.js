@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 
 const GeneralForecastComponent = ({ town, forecast }) => {
-  const nowHour = new Date().getHours();
-
   const checkClouds = (clouds) => {
     if (clouds >= 0 && clouds <= 10) {
       return "Clear sky";
@@ -43,19 +41,11 @@ const GeneralForecastComponent = ({ town, forecast }) => {
           </div>
           <div className="flex justify-end items-center sm:justify-start">
             <span
-              className={`material-symbols-outlined text-8xl animate-pulse ${
-                forecast.current.cloud_cover <= 33
-                  ? "text-amber-400"
-                  : forecast.current.cloud_cover > 66
-                  ? "text-blue-600"
-                  : "text-amber-200"
+              className={`material-symbols-outlined text-8xl ${
+                forecast.current.is_day ? "text-amber-400" : "text-blue-700"
               } `}
             >
-              {forecast.current.cloud_cover <= 33
-                ? "wb_sunny"
-                : forecast.current.cloud_cover > 66
-                ? "cloud"
-                : "partly_cloudy_day"}
+              {forecast.current.is_day ? "wb_sunny" : "nights_stay"}
             </span>
           </div>
         </div>
