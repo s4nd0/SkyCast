@@ -56,8 +56,10 @@ const ScrollComponent = ({ forecast }) => {
               </div>
             </div>
             <div className="w-full mt-1 flex flex-row items-center justify-center">
-              <span className="material-symbols-rounded text-sm">circle</span>
-              <span className="material-symbols-rounded text-sm text-slate-50/50">
+              <span className="material-symbols-outlined text-sm mr-1">
+                circle
+              </span>
+              <span className="material-symbols-outlined text-sm text-slate-50/25">
                 circle
               </span>
             </div>
@@ -76,10 +78,10 @@ const ScrollComponent = ({ forecast }) => {
               </div>
             </div>
             <div className="w-full mt-1 flex flex-row items-center justify-center">
-              <span className="material-symbols-rounded text-sm text-slate-50/50">
+              <span className="material-symbols-outlined text-sm text-slate-50/25 mr-1">
                 circle
               </span>
-              <span className="material-symbols-rounded text-sm">circle</span>
+              <span className="material-symbols-outlined text-sm">circle</span>
             </div>
           </div>
         </div>
