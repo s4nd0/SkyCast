@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/SkyCast/static/css/main.2e61eb23.css",
-    "main.js": "/SkyCast/static/js/main.3f5b65d3.js",
+    "main.css": "/SkyCast/static/css/main.f6985bdb.css",
+    "main.js": "/SkyCast/static/js/main.1e1b8b23.js",
     "static/media/weather-logo.png": "/SkyCast/static/media/weather-logo.22ce0ffb6af6f5f3c368.png",
     "index.html": "/SkyCast/index.html",
-    "main.2e61eb23.css.map": "/SkyCast/static/css/main.2e61eb23.css.map",
-    "main.3f5b65d3.js.map": "/SkyCast/static/js/main.3f5b65d3.js.map"
+    "main.f6985bdb.css.map": "/SkyCast/static/css/main.f6985bdb.css.map",
+    "main.1e1b8b23.js.map": "/SkyCast/static/js/main.1e1b8b23.js.map"
   },
   "entrypoints": [
-    "static/css/main.2e61eb23.css",
-    "static/js/main.3f5b65d3.js"
+    "static/css/main.f6985bdb.css",
+    "static/js/main.1e1b8b23.js"
   ]
 }
