@@ -7,9 +7,9 @@ const SearchComponent = ({ name, setName, handleSubmit }) => {
         onSubmit={handleSubmit}
         className="flex justify-center items-center sm:justify-start"
       >
-        <label>
+        <label className="w-full">
           <input
-            className="pl-4 bg-sky-800/25 py-2 rounded-full placeholder:text-gray-200"
+            className="pl-4 bg-sky-800/25 py-2 rounded-full placeholder:text-gray-200 w-full"
             type="text"
             placeholder="Name of the town"
             onChange={(e) => setName(e.target.value)}

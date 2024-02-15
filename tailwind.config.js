@@ -8,5 +8,5 @@ module.exports = {
       signika: ["Signika Negative", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

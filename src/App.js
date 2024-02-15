@@ -8,11 +8,12 @@ import ErrorText from "./components/ErrorText";
 import GeneralForecastComponent from "./components/GeneralForecastComponent";
 import HoursForecastComponent from "./components/HoursForecastComponent";
 import LoadingComponent from "./components/LoadingComponent";
+import DetailsForecastComponent from "./components/DetailsForecastComponent";
+import ScrollComponent from "./components/ScrollComponent";
+import HorizontalDesktopComponent from "./components/HorizontalDesktopComponent";
 
 // hooks
 import { useForecast } from "./hooks/useForecast";
-import DetailsForecastComponent from "./components/DetailsForecastComponent";
-import ScrollComponent from "./components/ScrollComponent";
 
 function App() {
   const [name, setName] = useState("");
@@ -81,13 +82,24 @@ function App() {
           <LoadingComponent />
         ) : (
           forecast && (
-            <div className="my-4 sm:grid sm:grid-cols-2 box-border">
-              <GeneralForecastComponent town={town} forecast={forecast} />
-              <DetailsForecastComponent forecast={forecast} />
+            <>
+              <div className="my-4 sm:grid sm:grid-cols-2 box-border">
+                <GeneralForecastComponent town={town} forecast={forecast} />
+                <div className="hidden sm:block">
+                  <DetailsForecastComponent forecast={forecast} />
+                </div>
+              </div>
+              <HoursForecastComponent forecast={forecast} />
+              <div className="sm:hidden mt-4">
+                <DetailsForecastComponent forecast={forecast} />
+              </div>
               <div className="sm:hidden">
                 <ScrollComponent forecast={forecast} />
               </div>
-            </div>
+              <div className="hidden sm:grid grid-cols-2 box-border gap-2 mt-4">
+                <HorizontalDesktopComponent forecast={forecast} />
+              </div>
+            </>
           )
         )}
         {error && <ErrorText text={error} />}

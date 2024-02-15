@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export const useForecast = () => {
   const [forecast, setForecast] = useState(null);
