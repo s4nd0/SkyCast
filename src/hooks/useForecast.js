@@ -107,13 +107,16 @@ export const useForecast = () => {
   // function for setting a user position on start
   const onMount = async () => {
     try {
+      setIsPending(true);
       const pos = await getPosition();
       const { latitude: lat, longitude: lng } = pos.coords;
       await getUserTown(lat, lng);
-      generalForecastUserLocation(lat, lng);
+      await generalForecastUserLocation(lat, lng);
+      setIsPending(false);
     } catch (err) {
       generalForecast("Warsaw");
       setEnabledLocation(false);
+      setIsPending(false);
     }
   };
 

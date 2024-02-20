@@ -33,14 +33,9 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setTown(name);
+    generalForecast(name);
     setName("");
   };
-
-  useEffect(() => {
-    if (town) {
-      !enabledLocation && generalForecast(town);
-    }
-  }, [town]);
   useEffect(() => {
     onMount();
   }, []);
