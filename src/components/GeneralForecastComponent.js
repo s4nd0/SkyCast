@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const GeneralForecastComponent = ({ town, forecast }) => {
+const GeneralForecastComponent = ({ town, forecast, enabledLocation }) => {
   const checkClouds = (clouds) => {
     if (clouds >= 0 && clouds <= 10) {
       return "Clear sky";
@@ -27,7 +27,7 @@ const GeneralForecastComponent = ({ town, forecast }) => {
     <div className="p-4 h-fit box-border font-signika">
       <>
         <p className="text-2xl flex flex-row items-center">
-          {town}{" "}
+          {enabledLocation ? "Your location" : town}{" "}
           <span className="material-symbols-outlined ml-2">location_on</span>
         </p>
         <div className="grid grid-cols-2">

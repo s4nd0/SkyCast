@@ -14,12 +14,20 @@ import HorizontalDesktopComponent from "./components/HorizontalDesktopComponent"
 
 // hooks
 import { useForecast } from "./hooks/useForecast";
+import DailyForecastComponent from "./components/DailyForecastComponent";
 
 function App() {
   const [name, setName] = useState("");
   const [town, setTown] = useState("Warsaw");
 
-  const { generalForecast, isPending, forecast, error } = useForecast();
+  const {
+    generalForecast,
+    onMount,
+    isPending,
+    forecast,
+    error,
+    enabledLocation,
+  } = useForecast();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,39 +35,14 @@ function App() {
     setName("");
   };
 
-  // // getting user position
-  // const getPosition = function () {
-  //   return new Promise(function (resolve, reject) {
-  //     navigator.geolocation.getCurrentPosition(
-  //       (posiotion) => resolve(posiotion),
-  //       (err) => reject(err)
-  //     );
-  //     navigator.geolocation.getCurrentPosition(resolve, reject);
-  //   });
-  // };
-
-  // // function for setting a user position on start
-  // const onMount = async () => {
-  //   setPositionError(null);
-  //   try {
-  //     const pos = await getPosition();
-  //     const { latitude: lat, longitude: lng } = pos.coords;
-  //     setPosition({ lat: lat, lng: lng });
-  //   } catch (err) {
-  //     setPositionError(err.message);
-  //   }
-  // };
-
-  // fetch data on the start of the app
-  // useEffect(() => {
-  //   onMount();
-  // }, []);
-
   useEffect(() => {
     if (town) {
-      generalForecast(town);
+      !enabledLocation && generalForecast(town);
     }
   }, [town]);
+  useEffect(() => {
+    onMount();
+  }, []);
 
   return (
     <div
@@ -84,12 +67,19 @@ function App() {
           forecast && (
             <>
               <div className="my-4 sm:grid sm:grid-cols-2 box-border">
-                <GeneralForecastComponent town={town} forecast={forecast} />
+                <GeneralForecastComponent
+                  town={town}
+                  forecast={forecast}
+                  enabledLocation={enabledLocation}
+                />
                 <div className="hidden sm:block">
                   <DetailsForecastComponent forecast={forecast} />
                 </div>
               </div>
               <HoursForecastComponent forecast={forecast} />
+              <div className="my-4 sm:grid sm:grid-cols-2 box-border gap-2">
+                <DailyForecastComponent forecast={forecast} />
+              </div>
               <div className="sm:hidden mt-4">
                 <DetailsForecastComponent forecast={forecast} />
               </div>

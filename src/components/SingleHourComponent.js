@@ -30,10 +30,10 @@ const SingleHourComponent = ({ item, index, forecast }) => {
   };
   return (
     <div className="flex flex-col items-center mx-3">
-      <p className="text-gray-400 text-sm mb-2">{handleHour()}:00</p>
+      <p className="text-gray-200 text-sm mb-2">{handleHour()}:00</p>
       {handleClouds(forecast.hourly.cloud_cover[index + nowHour])}
       <p className="my-2 text-lg">{Number(item).toFixed()}°</p>
-      <p className="text-gray-400 text-sm flex flex-row items-center">
+      <p className="text-gray-200 text-sm flex flex-row items-center">
         <span className="material-symbols-outlined text-sm">humidity_high</span>
         <span>
           {forecast.hourly.precipitation_probability[index + nowHour]}%
