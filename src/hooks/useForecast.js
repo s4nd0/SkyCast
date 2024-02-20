@@ -5,6 +5,7 @@ export const useForecast = () => {
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
   const [enabledLocation, setEnabledLocation] = useState(true);
+  const [userTown, setUserTown] = useState(null);
 
   const generalForecast = async (name) => {
     setEnabledLocation(false);
@@ -74,6 +75,22 @@ export const useForecast = () => {
     }
   };
 
+  const getUserTown = async (lat, lng) => {
+    try {
+      do {
+        const res = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+        var data = await res.json();
+        if (data.city !== "Throttled! See geocode.xyz/pricing")
+          setUserTown(data.city);
+        console.log(data);
+      } while (data.city === "Throttled! See geocode.xyz/pricing");
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  console.log(userTown);
+
   // getting user position
   const getPosition = function () {
     return new Promise(function (resolve, reject) {
@@ -92,6 +109,7 @@ export const useForecast = () => {
     try {
       const pos = await getPosition();
       const { latitude: lat, longitude: lng } = pos.coords;
+      await getUserTown(lat, lng);
       generalForecastUserLocation(lat, lng);
     } catch (err) {
       generalForecast("Warsaw");
@@ -106,5 +124,6 @@ export const useForecast = () => {
     generalForecast,
     onMount,
     enabledLocation,
+    userTown,
   };
 };

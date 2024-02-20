@@ -27,6 +27,7 @@ function App() {
     forecast,
     error,
     enabledLocation,
+    userTown,
   } = useForecast();
 
   const handleSubmit = (e) => {
@@ -71,6 +72,7 @@ function App() {
                   town={town}
                   forecast={forecast}
                   enabledLocation={enabledLocation}
+                  userTown={userTown}
                 />
                 <div className="hidden sm:block">
                   <DetailsForecastComponent forecast={forecast} />
