@@ -1,5 +1,14 @@
 import React, { useEffect } from "react";
 
+// icons
+import locationOn from "../images/locationOn.svg";
+import wbSunny from "../images/wbSunny.svg";
+import nightsStay from "../images/nightsStay.svg";
+
+// components
+import Icon from "./Icon";
+import IconMain from "./IconMain";
+
 const GeneralForecastComponent = ({
   town,
   forecast,
@@ -24,16 +33,14 @@ const GeneralForecastComponent = ({
     }
   };
 
-  useEffect(() => {
-    console.log(forecast);
-  }, [forecast]);
-
   return (
     <div className="p-4 h-fit box-border font-signika">
       <>
         <p className="text-2xl flex flex-row items-center">
           {enabledLocation ? userTown : town}{" "}
-          <span className="material-symbols-outlined ml-2">location_on</span>
+          <span className="ml-2">
+            <Icon src={locationOn} alt={"location-on-icon"} />
+          </span>
         </p>
         <div className="grid grid-cols-2">
           <div>
@@ -50,7 +57,11 @@ const GeneralForecastComponent = ({
                 forecast.current.is_day ? "text-amber-400" : "text-blue-700"
               } `}
             >
-              {forecast.current.is_day ? "wb_sunny" : "nights_stay"}
+              {forecast.current.is_day ? (
+                <IconMain src={wbSunny} alt={"wb-sunny-icon"} />
+              ) : (
+                <IconMain src={nightsStay} alt={"nights-stay-icon"} />
+              )}
             </span>
           </div>
         </div>

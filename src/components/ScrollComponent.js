@@ -1,18 +1,27 @@
 import React from "react";
 
+// icons
+import wbSunny from "../images/wbSunny.svg";
+import nightsStay from "../images/nightsStay.svg";
+import circle from "../images/circle.svg";
+import thermometer from "../images/thermometer.svg";
+
+// components
+import Icon from "./Icon";
+
 const ScrollComponent = ({ forecast }) => {
   const handleSunTitle = (is_day) => {
     if (is_day) {
       return (
         <>
-          <span className="material-symbols-outlined">nights_stay</span>
+          <Icon src={nightsStay} alt={"nights-stay-icon"} dark={true} />
           <p className="ml-1">Time to sleep</p>
         </>
       );
     } else {
       return (
         <>
-          <span className="material-symbols-outlined">wb_sunny</span>
+          <Icon src={wbSunny} alt={"wb-sunny-icon"} dark={true} />
           <p className="ml-1">Time to get up</p>
         </>
       );
@@ -56,12 +65,8 @@ const ScrollComponent = ({ forecast }) => {
               </div>
             </div>
             <div className="w-full mt-1 flex flex-row items-center justify-center">
-              <span className="material-symbols-outlined text-sm mr-1">
-                circle
-              </span>
-              <span className="material-symbols-outlined text-sm text-slate-50/25">
-                circle
-              </span>
+              <Icon src={circle} alt={"circle-icon"} />
+              <Icon src={circle} alt={"circle-icon"} dark={true} />
             </div>
           </div>
         </div>
@@ -70,7 +75,7 @@ const ScrollComponent = ({ forecast }) => {
           <div className="flex flex-col ">
             <div>
               <div className="flex flex-row items-center text-gray-300 ">
-                <span className="material-symbols-outlined">thermometer</span>
+                <Icon src={thermometer} alt={"thermometer-icon"} dark={true} />
                 <p className="ml-1">Tommorow's temperature</p>
               </div>
               <div className="mt-2 text-lg overflow-hidden">
@@ -78,10 +83,8 @@ const ScrollComponent = ({ forecast }) => {
               </div>
             </div>
             <div className="w-full mt-1 flex flex-row items-center justify-center">
-              <span className="material-symbols-outlined text-sm text-slate-50/25 mr-1">
-                circle
-              </span>
-              <span className="material-symbols-outlined text-sm">circle</span>
+              <Icon src={circle} alt={"circle-icon"} dark={true} />
+              <Icon src={circle} alt={"circle-icon"} />
             </div>
           </div>
         </div>

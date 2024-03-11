@@ -1,6 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
+
+// components
 import SingleHourComponent from "./SingleHourComponent";
 import SunHourComponent from "./SunHourComponent";
+import Icon from "./Icon";
+
+// icons
+import update from "../images/update.svg";
 
 const HoursForecastComponent = ({ forecast }) => {
   const nowHour = new Date().getHours();
@@ -14,7 +20,7 @@ const HoursForecastComponent = ({ forecast }) => {
   return (
     <div className="bg-sky-800/25 p-4 rounded-2xl">
       <div className="flex flex-row items-center text-gray-200 border-b border-blue-400 pb-2">
-        <span className="material-symbols-outlined">update</span>
+        <Icon src={update} alt={"update-icon"} />
         <p className="ml-1">
           {avg < 33
             ? "Mostly clear sky"

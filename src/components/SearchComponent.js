@@ -1,4 +1,8 @@
 import React from "react";
+import Icon from "./Icon";
+
+// icons
+import search from "../images/search.svg";
 
 const SearchComponent = ({ name, setName, handleSubmit }) => {
   return (
@@ -17,8 +21,8 @@ const SearchComponent = ({ name, setName, handleSubmit }) => {
           />
         </label>
         <button className="transition bg-sky-800/25 duration-100 cursor-pointer ml-2 rounded-full">
-          <span className="m-1 material-symbols-outlined w-8 h-8 text-2xl">
-            search
+          <span className="material-symbols-outlined p-1 mt-1">
+            <Icon src={search} alt={"search-icon"} />
           </span>
         </button>
       </form>

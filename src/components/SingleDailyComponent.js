@@ -1,5 +1,11 @@
 import React from "react";
 
+// icons
+import humidityHigh from "../images/humidityHigh.svg";
+
+// components
+import IconSmall from "./IconSmall";
+
 const SingleDailyComponent = ({ item, index, forecast }) => {
   const handleDay = (index) => {
     const today = new Date().getDay();
@@ -16,9 +22,7 @@ const SingleDailyComponent = ({ item, index, forecast }) => {
       <p className="mr-auto">{index === 0 ? "Today" : handleDay(index)}</p>
       <div className="flex flex-row justify-between gap-4">
         <p className="text-gray-300 text-sm flex flex-row items-center">
-          <span className="material-symbols-rounded text-sm">
-            humidity_high
-          </span>
+          <IconSmall src={humidityHigh} alt={"humidity-high-icon"} />
           <span>{forecast.daily.precipitation_probability_max[index]}%</span>
         </p>
         <p className="text-gray-300 text-sm flex flex-row items-center w-14">

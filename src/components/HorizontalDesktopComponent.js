@@ -1,5 +1,12 @@
 import React from "react";
+
+// components
 import DetailComponent from "./DetailComponent";
+
+// icons
+import wbSunny from "../images/wbSunny.svg";
+import nightsStay from "../images/nightsStay.svg";
+import thermometer from "../images/thermometer.svg";
 
 const HorizontalDesktopComponent = ({ forecast }) => {
   const isDay = forecast.current.is_day;
@@ -22,7 +29,7 @@ const HorizontalDesktopComponent = ({ forecast }) => {
   return (
     <>
       <DetailComponent
-        icon={isDay ? "wb_sunny" : "nights_stay"}
+        icon={isDay ? wbSunny : nightsStay}
         title={isDay ? "Time to sleep" : "Time to get up"}
         content={
           isDay
@@ -31,7 +38,7 @@ const HorizontalDesktopComponent = ({ forecast }) => {
         }
       />
       <DetailComponent
-        icon={"thermometer"}
+        icon={thermometer}
         title={"Tommorow's temperature"}
         content={handleTemperature(forecast.hourly.temperature_2m)}
       />

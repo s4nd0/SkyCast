@@ -1,5 +1,17 @@
 import React, { useEffect, useState } from "react";
+
+// icons
+import air from "../images/air.svg";
+import north from "../images/north.svg";
+import humidityPercentage from "../images/humidityPercentage.svg";
+import compareArrows from "../images/compareArrows.svg";
+import wbSunny from "../images/wbSunny.svg";
+import partlyCloudyDay from "../images/PartlyCloudyDay.svg";
+import visibility from "../images/visibility.svg";
+
+// components
 import DetailComponent from "./DetailComponent";
+import Icon from "./Icon";
 
 const DetailsForecastComponent = ({ forecast }) => {
   const [rotation, setRotation] = useState("");
@@ -27,7 +39,7 @@ const DetailsForecastComponent = ({ forecast }) => {
     <div className="p-1 mt-1 h-fit box-border font-signika grid grid-cols-2 gap-4">
       <div className="bg-sky-800/25 p-4 rounded-2xl">
         <div className="flex flex-row items-center text-gray-300">
-          <span className="material-symbols-outlined">air</span>
+          <Icon src={air} alt={"air-icon"} dark={true} />
           <p className="ml-1">Wind</p>
         </div>
         <div className="flex flex-row items-center mt-2 text-xl">
@@ -36,34 +48,34 @@ const DetailsForecastComponent = ({ forecast }) => {
               style={{ transform: `rotate(${rotation}deg)` }}
               className={`material-symbols-outlined`}
             >
-              north
+              <Icon src={north} alt={"north-icon"} />
             </span>
           )}
           <p className="ml-3">{forecast.current.wind_speed_10m} km/h</p>
         </div>
       </div>
       <DetailComponent
-        icon={"humidity_percentage"}
+        icon={humidityPercentage}
         title={"Humidity"}
         content={`${forecast.current.relative_humidity_2m} %`}
       />
       <DetailComponent
-        icon={"compare_arrows"}
+        icon={compareArrows}
         title={"Pressure"}
         content={`${forecast.current.surface_pressure} hPa`}
       />
       <DetailComponent
-        icon={"wb_sunny"}
+        icon={wbSunny}
         title={"Index UV"}
         content={handleUV(Number(forecast.daily.uv_index_max[0]))}
       />
       <DetailComponent
-        icon={"partly_cloudy_day"}
+        icon={partlyCloudyDay}
         title={"Clouds"}
         content={`${forecast.current.cloud_cover} %`}
       />
       <DetailComponent
-        icon={"visibility"}
+        icon={visibility}
         title={"Visibility"}
         content={`${Number(
           forecast.hourly.visibility[nowHour] / 1000
