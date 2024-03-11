@@ -1,14 +1,30 @@
 {
   "files": {
-    "main.css": "/SkyCast/static/css/main.74335550.css",
-    "main.js": "/SkyCast/static/js/main.3d2d1fda.js",
+    "main.css": "/SkyCast/static/css/main.aa86f155.css",
+    "main.js": "/SkyCast/static/js/main.432076fd.js",
     "static/media/weather-logo.png": "/SkyCast/static/media/weather-logo.22ce0ffb6af6f5f3c368.png",
     "index.html": "/SkyCast/index.html",
-    "main.74335550.css.map": "/SkyCast/static/css/main.74335550.css.map",
-    "main.3d2d1fda.js.map": "/SkyCast/static/js/main.3d2d1fda.js.map"
+    "static/media/PartlyCloudyDay.svg": "/SkyCast/static/media/PartlyCloudyDay.70264a9211c5fb1bac284587c597e00b.svg",
+    "static/media/nightsStay.svg": "/SkyCast/static/media/nightsStay.7518a71cdaa94c8543468907b71dcd70.svg",
+    "static/media/humidityPercentage.svg": "/SkyCast/static/media/humidityPercentage.436acf5ae7d9c3aab059eb8d0b9ed8c5.svg",
+    "static/media/visibility.svg": "/SkyCast/static/media/visibility.83b4018a1f8c5cf87f50c740adfde6aa.svg",
+    "static/media/wbSunny.svg": "/SkyCast/static/media/wbSunny.b1033f6cebb0dedadb02f319804d5b7e.svg",
+    "static/media/air.svg": "/SkyCast/static/media/air.acc9e99b86a081c8eee11db45eecb1ab.svg",
+    "static/media/update.svg": "/SkyCast/static/media/update.8ec56984a0254f8fede7df25a8d6b1a2.svg",
+    "static/media/locationOn.svg": "/SkyCast/static/media/locationOn.83fe2e94b1be8ecf59b0bb1fd6669c51.svg",
+    "static/media/cloud.svg": "/SkyCast/static/media/cloud.176b6fbe1b74c0f5059a8f5e85ccbb96.svg",
+    "static/media/circle.svg": "/SkyCast/static/media/circle.6bfeb430abd13c4c8a6412d543719848.svg",
+    "static/media/search.svg": "/SkyCast/static/media/search.82d3481840537f55a197ec3b7d2e44f5.svg",
+    "static/media/thermometer.svg": "/SkyCast/static/media/thermometer.ef0a75849e7f6deddc2c808ebed06b14.svg",
+    "static/media/wbTwilight.svg": "/SkyCast/static/media/wbTwilight.51c617b96c963c406fb9d5399e7c6c5a.svg",
+    "static/media/compareArrows.svg": "/SkyCast/static/media/compareArrows.2649b40af575d5b9524c27443a3e7e2b.svg",
+    "static/media/humidityHigh.svg": "/SkyCast/static/media/humidityHigh.a785c8b96610f780ab5f1311e0671d12.svg",
+    "static/media/north.svg": "/SkyCast/static/media/north.859fef03f3d6dd0fe9a976d3721dddda.svg",
+    "main.aa86f155.css.map": "/SkyCast/static/css/main.aa86f155.css.map",
+    "main.432076fd.js.map": "/SkyCast/static/js/main.432076fd.js.map"
   },
   "entrypoints": [
-    "static/css/main.74335550.css",
-    "static/js/main.3d2d1fda.js"
+    "static/css/main.aa86f155.css",
+    "static/js/main.432076fd.js"
   ]
 }
